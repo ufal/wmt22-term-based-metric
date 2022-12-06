@@ -56,4 +56,4 @@ The scores of the widespread automated metrics that we checked against ours are 
   * main methods:
     * make_metrics
 
-* [data.zip](data.zip) - zip file with all input and generated data for the code above. You should unpack the 4 folders straight into your working directory (not into the `data` folder!)
+* [data.zip](data.zip) - zip file with all input and generated data for the code above. You should unpack the 5 folders **straight into your working directory** (not into the `data` folder!)
