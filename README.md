@@ -24,7 +24,7 @@ The scores of the widespread automated metrics that we checked against ours are 
 
 ## Code Sample
 * [example.ipynb](example.ipynb): the main run of the metric
- [comparative_analysis.ipynb](comparative_analysis.ipynb): analysis of my metric variants and its comparison to the mainstream MT metrics
+* [comparative_analysis.ipynb](comparative_analysis.ipynb): analysis of my metric variants and its comparison to the mainstream MT metrics
  
 ## Code description:
 * [tokenization.py](tokenization.py):
