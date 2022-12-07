@@ -180,10 +180,10 @@ class TermBasedMetricPreparator():
         initiated = {kw: False for kw in kw_list}
         #    src_kw_col = df['src_terms'].to_list()
         #    src_kw_list = list(set([word for sentence in src_kw_col for word in sentence]))
-        tgt_initiated = dict()
+        #tgt_initiated = dict()
         for index, row in df.iterrows():
             kw_len = len(row['src_terms'])
-            order_counter = 0.01
+            #order_counter = 0.01
             for i in range(kw_len):
                 src_term = row['src_terms'][i]
                 tgt_term = row['tgt_words'][i]
@@ -204,9 +204,9 @@ class TermBasedMetricPreparator():
                     alignment_variants_dict[src_term][tgt_term] += 1
                 else:
                     alignment_variants_dict[src_term][tgt_term] = 1
-                if tgt_term not in tgt_initiated:
-                    tgt_initiated[tgt_term] = index + order_counter
-                order_counter += 0.01
+                #if tgt_term not in tgt_initiated:
+                #    tgt_initiated[tgt_term] = index + order_counter
+                #order_counter += 0.01
         df_data = []
         for src_term in alignment_variants_dict:
             for tgt_term in alignment_variants_dict[src_term]:
@@ -215,9 +215,9 @@ class TermBasedMetricPreparator():
                 #    index = index
                 #else:
                 #    index = -1
-                df_data.append([src_term, tgt_term, alignment_variants_dict[src_term][tgt_term], is_initial, tgt_initiated[tgt_term]])
+                df_data.append([src_term, tgt_term, alignment_variants_dict[src_term][tgt_term], is_initial]) #https://github.com/ufal/wmt22-term-based-metric
 
-        df_alignment_variants = pd.DataFrame(data=df_data, columns=['src_term', 'tgt_term', 'count', 'is_initial', 'sentence_id'])
+        df_alignment_variants = pd.DataFrame(data=df_data, columns=['src_term', 'tgt_term', 'count', 'is_initial'])
 
         most_common_translation_ids = df_alignment_variants.groupby('src_term')['count'].idxmax().to_list()
         df_alignment_variants['is_most_frequent'] = False
